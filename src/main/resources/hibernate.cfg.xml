@@ -9,7 +9,9 @@
     <session-factory>
         <!-- <property name="hbm2ddl.auto">update</property> -->
         <property name="dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
-        <property name="connection.url">jdbc:oracle:thin:@sean-klin-lt:1521:VV2</property>
+        <!-- <property name="dialect">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
+        <!-- <property name="connection.url">jdbc:sqlserver:thin:@sean-klin-lt:1521:;databaseName=VV2</property> -->
+        <property name="connection.url">jdbc:sqlserver://sean-klin-lt:1433;databaseName=BeowulfTest</property>
         <property name="connection.username">sa</property>
         <property name="connection.password">MyDog8MyPassword</property>
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
