@@ -2,13 +2,19 @@ package hibertest;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;  
 
 public class HiberQTest {
 
+	final static Logger log = Logger.getLogger(HiberQTest.class);
+	
 	public static void main(String[] args) {
+		log.debug("trying my first log");
+		log.info("first info log");
+		
 		showCurrentFolder();
 		Configuration cfg=new Configuration();  
 		cfg.configure("hibernate.cfg.xml");  
