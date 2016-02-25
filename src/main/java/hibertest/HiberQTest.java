@@ -123,13 +123,18 @@ public class HiberQTest {
 
 	private void describe(Session session) {
 
-		session.doWork(new Work() {
-			public void execute(Connection connection) throws SQLException {
-				DatabaseMetaData databaseMetaData = connection.getMetaData();
-				writeTableInfo(databaseMetaData, "AoProducts");
-				writeTableInfo(databaseMetaData, "vw_inv_poplacedby");
-			}
-		});
+		TableDescribeWorker tDescWorker = new TableDescribeWorker("AoProducts", log);
+		session.doWork(tDescWorker);
+		tDescWorker.setTableName("vw_inv_poplacedby");
+		session.doWork(tDescWorker);
+		
+//		session.doWork(new Work() {
+//			public void execute(Connection connection) throws SQLException {
+//				DatabaseMetaData databaseMetaData = connection.getMetaData();
+//				writeTableInfo(databaseMetaData, "AoProducts");
+//				writeTableInfo(databaseMetaData, "vw_inv_poplacedby");
+//			}
+//		});
 	}
 
 	private void writeTableInfo(DatabaseMetaData databaseMetaData, String tableName) {
